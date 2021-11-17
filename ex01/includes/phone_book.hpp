@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 17:14:28 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/11/15 21:25:44 by rotrojan         ###   ########.fr       */
+/*   Updated: 2021/11/17 16:55:47 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <cstdlib>
 # include <string>
 # include <iomanip>
+# include <limits>
 # include "Contact.class.hpp"
 # include "Phone_book.class.hpp"
 #endif

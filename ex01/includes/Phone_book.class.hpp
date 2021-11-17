@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 16:26:34 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/11/15 22:12:11 by rotrojan         ###   ########.fr       */
+/*   Updated: 2021/11/16 20:02:03 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@
 class Phone_book
 {
 	public:
-		Phone_book(void) {};
+		Phone_book(void): nb_contacts(0) {};
 		~Phone_book(void) {};
-		void	add_contact(void);
-		void	show_phone_book(void) const;
 		Contact	get_contact(int i) const;
+		void	show_phone_book(void) const;
+		void	search_contact(void) const;
+		void	add_contact(void);
 	private:
 		Contact	contact[NB_CONTACT_MAX];
+		int		nb_contacts;
 };
 
 #endif

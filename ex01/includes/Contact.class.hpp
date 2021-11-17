@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 16:26:34 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/11/15 22:05:42 by rotrojan         ###   ########.fr       */
+/*   Updated: 2021/11/16 20:15:36 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Contact
 		~Contact(void) {};
 		void	set_contact(void);
 		void	show_contact(void) const;
+		void	print_contact(void) const;
 	private:
-		void	print_new_contact(void) const;
 		std::string	first_name;
 		std::string	last_name;
 		std::string	nickname;
