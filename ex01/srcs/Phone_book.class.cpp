@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 17:08:57 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/11/19 15:39:04 by rotrojan         ###   ########.fr       */
+/*   Updated: 2021/11/19 19:35:40 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	Phone_book::search_contact(void) const
 
 void	Phone_book::add_contact(void)
 {
-	for (int i = this->_nb_contacts - 1; i > 0; i--)
+	for (int i = this->_nb_contacts; i > 0; i--)
 		this->_contact[i] = this->_contact[i - 1];
 	_contact[0].set_contact();
 	this->_nb_contacts += this->_nb_contacts == NB_CONTACT_MAX ? 0 : 1;
