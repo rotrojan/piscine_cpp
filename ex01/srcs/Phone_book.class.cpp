@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 17:08:57 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/11/17 21:54:26 by bigo             ###   ########.fr       */
+/*   Updated: 2021/11/19 15:39:04 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	Phone_book::search_contact(void) const
 		std::cout << std::endl << "Which contact do you want to display ?" << std::endl;
 		std::cout << "Index: ";
 		std::cin >> i;
+		if (std::cin.eof() == true)
+			exit(EXIT_FAILURE);
 		if (std::cin.fail() == true || i < 0 || i > this->_nb_contacts)
 		{
 			std::cin.clear();
@@ -59,8 +61,10 @@ void	Phone_book::search_contact(void) const
 		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		std::cout << "Type \"yes\" if you want to display another contact" << std::endl;
 		getline(std::cin, keep_on);
-		if (keep_on == "yes")
-			continue ;
+		if (std::cin.eof() == true)
+			exit(EXIT_FAILURE);
+		if (keep_on != "yes")
+			break ;
 	}
 }
 
