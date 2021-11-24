@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 20:36:19 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/11/24 19:23:49 by rotrojan         ###   ########.fr       */
+/*   Updated: 2021/11/24 20:00:21 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,11 +69,11 @@ void	replace(std::string &file_string, std::string str1, std::string str2)
 	size_t	len_str2 = str2.length();
 	size_t	found = 0;
 
-	while ((found = file_string.find(str1, found + len_str2)) != std::string::npos)
+	do
 	{
 		file_string.erase(found, len_str1);
 		file_string.insert(found, str2);
-	}
+	} while ((found = file_string.find(str1, found + len_str2)) != std::string::npos);
 }
 
 int	main(int ac, char **av)
