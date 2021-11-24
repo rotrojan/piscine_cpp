@@ -6,7 +6,7 @@
 /*   By: bigo <rotrojan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 15:26:17 by bigo              #+#    #+#             */
-/*   Updated: 2021/11/22 22:46:48 by rotrojan         ###   ########.fr       */
+/*   Updated: 2021/11/24 17:40:58 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class	Weapon
 	public:
 		Weapon(std::string type): _type(type) {};
 		~Weapon() {};
-		std::string	&getType(void);
+		std::string const	&getType(void) const;
 		void		setType(std::string type);
 	private:
 		std::string	_type;

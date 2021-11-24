@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 20:29:17 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/11/22 22:46:20 by rotrojan         ###   ########.fr       */
+/*   Updated: 2021/11/24 17:41:47 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	Weapon::setType(std::string type)
 	this->_type = type;
 }
 
-std::string	&Weapon::getType(void)
+std::string const	&Weapon::getType(void) const
 {
 	return (this->_type);
 }
