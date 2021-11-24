@@ -6,7 +6,7 @@
 /*   By: bigo <rotrojan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 01:14:14 by bigo              #+#    #+#             */
-/*   Updated: 2021/11/24 03:05:01 by bigo             ###   ########.fr       */
+/*   Updated: 2021/11/24 19:31:50 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,18 @@ int	main(int ac, char **av)
 	{
 		case DEBUG:
 			karen.complain("DEBUG");
-			break ;
+			std::cout << std::endl;
 		case INFO:
 			karen.complain("INFO");
-			break ;
+			std::cout << std::endl;
 		case WARNING:
 			karen.complain("WARNING");
-			break ;
+			std::cout << std::endl;
 		case ERROR:
 			karen.complain("ERROR");
 			break ;
 		default:
-			std::cout << "[ Probably complaining about insignificant problems ]"
-				<< std::endl;
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 			break ;
 	}
 	return (EXIT_SUCCESS);
