@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 20:38:10 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/11/22 23:01:37 by rotrojan         ###   ########.fr       */
+/*   Updated: 2021/11/24 14:51:02 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	HumanA
 		void	attack(void) const;
 	private:
 		std::string const	_name;
-		Weapon		&_weapon;
+		Weapon				&_weapon;
 };
 
 #endif

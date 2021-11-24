@@ -6,7 +6,7 @@
 /*   By: bigo <rotrojan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 15:26:17 by bigo              #+#    #+#             */
-/*   Updated: 2021/11/22 19:06:29 by rotrojan         ###   ########.fr       */
+/*   Updated: 2021/11/24 14:47:47 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ class	Zombie
 	public:
 		Zombie();
 		~Zombie();
-		void		announce(void);
-		void		set_name(std::string);
-	private:
+		void	announce(void) const;
+		void	set_name(std::string);
+		private:
 		std::string	_name;
 };
 

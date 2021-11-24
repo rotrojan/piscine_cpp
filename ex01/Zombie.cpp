@@ -6,7 +6,7 @@
 /*   By: bigo <rotrojan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 15:36:30 by bigo              #+#    #+#             */
-/*   Updated: 2021/11/21 17:15:43 by bigo             ###   ########.fr       */
+/*   Updated: 2021/11/24 14:47:56 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Zombie::~Zombie(void)
 	std::cout << this->_name << " died ... again." << std::endl;
 }
 
-void	Zombie::announce(void)
+void	Zombie::announce(void) const
 {
 	std::cout << this->_name << " BraiiiiiiinnnzzzZ..." << std::endl;
 }

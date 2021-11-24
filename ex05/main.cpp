@@ -6,7 +6,7 @@
 /*   By: bigo <rotrojan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 01:14:14 by bigo              #+#    #+#             */
-/*   Updated: 2021/11/24 01:30:55 by bigo             ###   ########.fr       */
+/*   Updated: 2021/11/24 14:57:54 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int	main(void)
 {
 	Karen	karen;
 
-	karen.complain("debug");
-	karen.complain("info");
-	karen.complain("warning");
-	karen.complain("error");
-	karen.complain("shut_up");
+	karen.complain("DEBUG");
+	karen.complain("INFO");
+	karen.complain("WARNING");
+	karen.complain("ERROR");
+	karen.complain("SHUT_UP");
 	return (EXIT_SUCCESS);
 }
