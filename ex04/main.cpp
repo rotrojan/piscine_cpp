@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/22 20:36:19 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/11/24 01:50:39 by bigo             ###   ########.fr       */
+/*   Updated: 2021/11/24 19:23:49 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,16 +63,16 @@ void	from_string_to_file(std::string file_string, std::string file_name)
 	output_file_stream.close();
 }
 
-void	replace(std::string &file_string, std::string str1, char *str2)
+void	replace(std::string &file_string, std::string str1, std::string str2)
 {
-	size_t	len = str1.length();
-	size_t	found;
+	size_t	len_str1 = str1.length();
+	size_t	len_str2 = str2.length();
+	size_t	found = 0;
 
-	while ((found = file_string.find(str1)) != std::string::npos)
+	while ((found = file_string.find(str1, found + len_str2)) != std::string::npos)
 	{
-		file_string.erase(found, len);
+		file_string.erase(found, len_str1);
 		file_string.insert(found, str2);
-		found = file_string.find(str1);
 	}
 }
 
@@ -86,7 +86,7 @@ int	main(int ac, char **av)
 		if (from_file_to_string(av[1], file_string) == false)
 			return (EXIT_FAILURE);
 		if (std::string(av[2]) != std::string(av[3]))
-			replace(file_string, std::string(av[2]), av[3]);
+			replace(file_string, std::string(av[2]), std::string(av[3]));
 		from_string_to_file(file_string, std::string(av[1]));
 	}
 	return (EXIT_SUCCESS);
