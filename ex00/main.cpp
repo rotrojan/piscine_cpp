@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 21:01:25 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/02 21:29:10 by rotrojan         ###   ########.fr       */
+/*   Updated: 2021/12/02 22:01:44 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,9 @@ int main(void)
 	ClapTrap	tod("Tod", bob);
 	display_claptrap(bob);
 	display_claptrap(tod);
+	bob.attack("a skag");
+	tod.takeDamage(12);
+	tod.beRepaired(10);
+	tod.beRepaired(4294967290);
 	return (EXIT_SUCCESS);
 }
