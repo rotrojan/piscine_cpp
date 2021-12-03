@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 20:40:12 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/02 22:02:16 by rotrojan         ###   ########.fr       */
+/*   Updated: 2021/12/03 16:16:24 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,12 @@ ClapTrap::~ClapTrap(void)
 
 ClapTrap	&ClapTrap::operator=(ClapTrap &claptrap)
 {
-	this->_hitPoints = claptrap.getHitPoints();
-	this->_energyPoints = claptrap.getEnergyPoints();
-	this->_attackDamage = claptrap.getAttackDamage();
+	if (this != &claptrap)
+	{
+		this->_hitPoints = claptrap.getHitPoints();
+		this->_energyPoints = claptrap.getEnergyPoints();
+		this->_attackDamage = claptrap.getAttackDamage();
+	}
 	return (*this);
 }
 

@@ -6,12 +6,13 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 21:01:25 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/03 17:18:39 by rotrojan         ###   ########.fr       */
+/*   Updated: 2021/12/03 22:08:28 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include <cstdlib>
 #include <iostream>
 
@@ -40,5 +41,14 @@ int main(void)
 	display_claptrap(paf);
 	tag.attack("an Arch Guardian");
 	paf.guardGate();
+	std::cout << std::endl;
+
+	FragTrap	ich("Ich");
+	FragTrap	san("San", ich);
+	display_claptrap(ich);
+	display_claptrap(san);
+	ich.attack("a slither");
+	san.highFivesGuys();
+	std::cout << std::endl;
 	return (EXIT_SUCCESS);
 }
