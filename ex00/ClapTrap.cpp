@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 20:40:12 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/03 16:16:24 by rotrojan         ###   ########.fr       */
+/*   Updated: 2021/12/06 16:46:46 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ClapTrap::ClapTrap(std::string name): _name(name), _hitPoints(10), _energyPoints
 	std::cout << "Greet " << this->_name << " as he joins the game !" << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name, ClapTrap &claptrap): _name(name)
+ClapTrap::ClapTrap(ClapTrap const &claptrap): _name(claptrap.getName())
 {
 	std::cout << "Greet " << this->_name << ", the copy of "
 		<< claptrap.getName() << " as he joins the game !" << std::endl;
@@ -32,7 +32,7 @@ ClapTrap::~ClapTrap(void)
 	std::cout << this->_name << " has leaved the game." << std::endl;
 }
 
-ClapTrap	&ClapTrap::operator=(ClapTrap &claptrap)
+ClapTrap	&ClapTrap::operator=(ClapTrap const &claptrap)
 {
 	if (this != &claptrap)
 	{
@@ -65,7 +65,7 @@ unsigned int	ClapTrap::getAttackDamage(void) const
 void	ClapTrap::attack(std::string const &target)
 {
 	std::cout << this->_name << " attacks fiercely " << target << ", causing "
-		<< this->_attackDamage << " points of damage!" << std::endl;
+		<< this->_attackDamage << " points of damage !" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
@@ -88,4 +88,13 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	std::cout << this->_name << " has been repaired of " << amount << " energy points." << std::endl;
 	std::cout << this->_name << " now have " << this->_energyPoints
 		<< " energy points." << std::endl;
+}
+
+std::ostream	&operator<<(std::ostream &ostream, ClapTrap const &rhs)
+{
+	ostream << rhs.getName() << " has " << rhs.getHitPoints()
+		<< " hit points, " << rhs.getEnergyPoints()
+		<< " energy points and makes " << rhs.getAttackDamage() 
+		<< " points of damage at each attack.";
+	return (ostream);
 }

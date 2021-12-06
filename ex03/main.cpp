@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 21:01:25 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/03 22:12:21 by rotrojan         ###   ########.fr       */
+/*   Updated: 2021/12/06 18:38:40 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,45 +17,59 @@
 #include <cstdlib>
 #include <iostream>
 
-void	display_claptrap(ClapTrap &claptrap)
-{
-	std::cout << claptrap.getName() << " has " << claptrap.getHitPoints()
-		<< " hit points, " << claptrap.getEnergyPoints()
-		<< " energy points and makes " << claptrap.getAttackDamage() 
-		<< " points of damage at each attack." << std::endl;
-}
-
 int main(void)
 {
-	ClapTrap	bob("Bob");
-	ClapTrap	tod("Tod", bob);
-	display_claptrap(bob);
-	display_claptrap(tod);
+	ClapTrap	bob;
+	std::cout << bob << std::endl;
+	std::cout << std::endl;
+
+	ClapTrap	tod(bob);
+	std::cout << tod << std::endl;
+	std::cout << std::endl;
+
 	bob.attack("a skag");
-	tod.takeDamage(12);
+	tod.takeDamage(5);
 	tod.beRepaired(10);
 	std::cout << std::endl;
 
-	ScavTrap	tag("Tag");
-	ScavTrap	paf("Paf", tag);
-	display_claptrap(tag);
-	display_claptrap(paf);
-	tag.attack("an Arch Guardian");
-	paf.guardGate();
+	ScavTrap	tag;
+	std::cout << tag << std::endl;
+	ScavTrap	paf(tag);
+	std::cout << paf << std::endl;
 	std::cout << std::endl;
 
-	FragTrap	ich("Ich");
-	FragTrap	san("San", ich);
-	display_claptrap(ich);
-	display_claptrap(san);
+	tag.attack("an Arch Guardian");
+	paf.guardGate();
+	tag.takeDamage(5);
+	tag.beRepaired(10);
+	std::cout << std::endl;
+
+	FragTrap	ich;
+	std::cout << ich << std::endl;
+	FragTrap	san(ich);
+	std::cout << san << std::endl;
+	std::cout << std::endl;
+
 	ich.attack("a slither");
+	san.takeDamage(5);
+	san.beRepaired(10);
 	san.highFivesGuys();
 	std::cout << std::endl;
 
-	DiamondTrap diams("Diams");
-	DiamondTrap ruby("Ruby", diams);
+	DiamondTrap	diams;
 	diams.whoAmI();
-	display(diams);
-	diams.dd
+	std::cout << diams << std::endl;
+	diams.attack("a rakk");
+	std::cout << std::endl;
+
+	DiamondTrap	ruby(diams);
+	ruby.whoAmI();
+	std::cout << ruby << std::endl;
+	ruby.takeDamage(5);
+	ruby.beRepaired(10);
+	ruby.guardGate();
+	ruby.highFivesGuys();
+	std::cout << std::endl;
+
 	return (EXIT_SUCCESS);
 }

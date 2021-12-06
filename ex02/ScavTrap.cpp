@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 22:21:37 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/03 18:21:24 by rotrojan         ###   ########.fr       */
+/*   Updated: 2021/12/06 17:03:46 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <string>
 #include <iostream>
 
-ScavTrap::ScavTrap(std::string name): ClapTrap(name)
+ScavTrap::ScavTrap(void): ClapTrap()
 {
 	this->_hitPoints = 100;
 	this->_energyPoints = 50;
@@ -22,7 +22,7 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 	std::cout << this->_name << " is a SC4V-TP." << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name, ScavTrap &scavtrap): ClapTrap(name, scavtrap)
+ScavTrap::ScavTrap(ScavTrap const &scavtrap): ClapTrap(scavtrap)
 {
 	std::cout << this->_name << " is a SC4V-TP." << std::endl;
 }
@@ -32,9 +32,9 @@ ScavTrap::~ScavTrap(void)
 	std::cout << "Enough for "<< this->_name << " the SC4V-TP." << std::endl;
 }
 
-ScavTrap	&ScavTrap::operator=(ScavTrap &scavtrap)
+ScavTrap	&ScavTrap::operator=(ScavTrap const &scavtrap)
 {
-	if (&scavtrap != this)
+	if (this != &scavtrap)
 		*this = scavtrap;
 	return (*this);
 }

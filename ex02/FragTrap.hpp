@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 22:15:17 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/03 21:18:00 by rotrojan         ###   ########.fr       */
+/*   Updated: 2021/12/06 17:06:01 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ class FragTrap: public ClapTrap
 {
 	public:
 		FragTrap(std::string name = "Fragtrap");
-		FragTrap(std::string name, FragTrap &fragtrap);
+		FragTrap(FragTrap const &fragtrap);
 		~FragTrap(void);
-		FragTrap	&operator=(FragTrap &fragtrap);
+		FragTrap	&operator=(FragTrap const &fragtrap);
 		void		attack(std::string const &target);
 		void		highFivesGuys(void);
 };
