@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:46:14 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/11 23:46:25 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/12 00:22:55 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,8 @@ class	Dog: public Animal
 		Dog(void);
 		Dog(Dog const &dog);
 		~Dog(void);
-		Dog &operator=(Dog const &rhs);
-		std::string const	&get_type(void) const;
-		void				make_sound(void) const;
+		Dog		&operator=(Dog const &rhs);
+		void	make_sound(void) const;
 };
 
 std::ostream	&operator<<(std::ostream &ostream, Dog const &rhs);

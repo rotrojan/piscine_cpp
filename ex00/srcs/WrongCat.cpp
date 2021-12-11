@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:55:06 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/11 23:47:24 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/12 00:26:20 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,8 @@ WrongCat::~WrongCat(void)
 WrongCat	&WrongCat::operator=(WrongCat const &rhs)
 {
 	std::cout << "WrongCat assignation operator called." << std::endl;
-	this->_type = rhs.get_type();
+	this->_type = rhs._type;
 	return (*this);
-}
-
-std::string const	&WrongCat::get_type(void) const
-{
-	return (this->_type);
 }
 
 void	WrongCat::make_sound(void) const

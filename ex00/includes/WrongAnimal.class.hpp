@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:46:14 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/07 23:19:30 by rotrojan         ###   ########.fr       */
+/*   Updated: 2021/12/12 00:23:35 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ class	WrongAnimal
 		WrongAnimal(std::string const &type = "wrong animal");
 		WrongAnimal(WrongAnimal const &wronganimal);
 		virtual ~WrongAnimal(void);
-		WrongAnimal &operator=(WrongAnimal const &rhs);
+		WrongAnimal			&operator=(WrongAnimal const &rhs);
 		std::string const	&get_type(void) const;
 		void				make_sound(void) const;
 	protected:
-		std::string	_type;
+		std::string			_type;
 };
 
-std::ostream	&operator<<(std::ostream &ostream, WrongAnimal const &rhs);
+std::ostream				&operator<<(std::ostream &ostream, WrongAnimal const &rhs);
 
 #endif

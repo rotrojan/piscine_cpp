@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:46:14 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/11 22:31:36 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/12 00:08:22 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ class	Brain
 		Brain(void);
 		Brain(Brain const &brain);
 		~Brain(void);
-		Brain		&operator=(Brain const &rhs);
+		Brain				&operator=(Brain const &rhs);
 		std::string const	to_str(void) const;
-	protected:
-		std::string	_ideas[NB_IDEAS_MAX];
+		void				add_idea(std::string idea);
+	private:
+		std::string			_ideas[NB_IDEAS_MAX];
 };
 
 std::ostream	&operator<<(std::ostream &ostream, Brain const &rhs);

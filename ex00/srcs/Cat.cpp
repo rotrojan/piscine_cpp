@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:55:06 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/11 20:01:00 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/12 00:25:49 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,8 @@ Cat::~Cat(void)
 Cat	&Cat::operator=(Cat const &rhs)
 {
 	std::cout << "Cat assignation operator called." << std::endl;
-	this->_type = rhs.get_type();
+	this->_type = rhs._type;
 	return (*this);
-}
-
-std::string const	&Cat::get_type(void) const
-{
-	return (this->_type);
 }
 
 void	Cat::make_sound(void) const

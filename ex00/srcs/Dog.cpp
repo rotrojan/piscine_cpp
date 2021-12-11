@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:55:06 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/11 19:59:46 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/12 00:25:25 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,8 @@ Dog::~Dog(void)
 Dog	&Dog::operator=(Dog const &rhs)
 {
 	std::cout << "Dog assignation operator called." << std::endl;
-	this->_type = rhs.get_type();
+	this->_type = rhs._type;
 	return (*this);
-}
-
-std::string const	&Dog::get_type(void) const
-{
-	return (this->_type);
 }
 
 void	Dog::make_sound(void) const

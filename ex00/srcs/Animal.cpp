@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:55:06 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/07 23:06:52 by rotrojan         ###   ########.fr       */
+/*   Updated: 2021/12/12 00:26:42 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Animal::~Animal(void)
 Animal	&Animal::operator=(Animal const &rhs)
 {
 	std::cout << "Animal assignation operator called." << std::endl;
-	this->_type = rhs.get_type();
+	this->_type = rhs._type;
 	return (*this);
 }
 

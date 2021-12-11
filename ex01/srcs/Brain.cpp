@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:55:06 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/11 22:33:12 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/12 00:11:49 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,12 @@ Brain	&Brain::operator=(Brain const &rhs)
 	for (int i = 0; rhs._ideas[i].empty() != true; i++)
 		this->_ideas[i] = rhs._ideas[i];
 	return (*this);
+}
+void	Brain::add_idea(std::string idea)
+{
+	for (int i = 0; i < NB_IDEAS_MAX - 1 && this->_ideas[i].empty() != true; i++)
+		this->_ideas[i + 1] = this->_ideas[i];
+	this->_ideas[0] = idea;
 }
 
 std::string const	Brain::to_str(void) const
