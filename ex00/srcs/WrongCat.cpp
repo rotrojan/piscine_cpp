@@ -1,53 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:55:06 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/07 23:20:45 by rotrojan         ###   ########.fr       */
+/*   Updated: 2021/12/11 20:03:39 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Cat.class.hpp"
+#include "WrongCat.class.hpp"
 
-Cat::Cat(void): Animal("cat")
+WrongCat::WrongCat(void): _type("wrong cat")
 {
-	std::cout << "This animal is a cat." << std::endl;
+	std::cout << "This animal is a wrong cat." << std::endl;
 }
 
-Cat::Cat(Cat const &cat)
+WrongCat::WrongCat(WrongCat const &wrongcat): WrongAnimal(wrongcat)
 {
-	*this = cat;
-	std::cout << "A copy of a cat of type " << this->_type
+	*this = wrongcat;
+	std::cout << "A copy of a wrong cat of type " << this->_type
 		<< " has been created." << std::endl;
 }
 
-Cat::~Cat(void)
+WrongCat::~WrongCat(void)
 {
-	std::cout << "A cat has been destroyed." << std::endl;
+	std::cout << "A wrong cat has been destroyed." << std::endl;
 }
 
-Cat	&Cat::operator=(Cat const &rhs)
+WrongCat	&WrongCat::operator=(WrongCat const &rhs)
 {
-	std::cout << "Cat assignation operator called." << std::endl;
+	std::cout << "WrongCat assignation operator called." << std::endl;
 	this->_type = rhs.get_type();
 	return (*this);
 }
 
-std::string const	&Cat::get_type(void) const
+std::string const	&WrongCat::get_type(void) const
 {
 	return (this->_type);
 }
 
-void	Cat::make_sound(void) const
+void	WrongCat::make_sound(void) const
 {
-	std::cout << "Meeeeeooooow!" << std::endl;
+	std::cout << "Fake Meeeeeooooow!" << std::endl;
 }
 
-std::ostream	&operator<<(std::ostream &ostream, Cat const &rhs)
+std::ostream	&operator<<(std::ostream &ostream, WrongCat const &rhs)
 {
 	ostream << rhs.get_type();
 	return (ostream);

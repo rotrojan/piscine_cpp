@@ -1,0 +1,59 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-std=c++98",
+      "-pedantic",
+      "-I",
+      "includes",
+      "-c",
+      "-o",
+      ".objs/main.o",
+      "main.cpp"
+    ],
+    "directory": "/home/bigo/born2code/piscine_cpp/cpp04/ex00",
+    "file": "/home/bigo/born2code/piscine_cpp/cpp04/ex00/main.cpp",
+    "output": "/home/bigo/born2code/piscine_cpp/cpp04/ex00/.objs/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-std=c++98",
+      "-pedantic",
+      "-I",
+      "includes",
+      "-c",
+      "-o",
+      ".objs/Animal.o",
+      "srcs/./Animal.cpp"
+    ],
+    "directory": "/home/bigo/born2code/piscine_cpp/cpp04/ex00",
+    "file": "/home/bigo/born2code/piscine_cpp/cpp04/ex00/srcs/./Animal.cpp",
+    "output": "/home/bigo/born2code/piscine_cpp/cpp04/ex00/.objs/Animal.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/c++",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-std=c++98",
+      "-pedantic",
+      "-I",
+      "includes",
+      "-c",
+      "-o",
+      ".objs/Dog.o",
+      "srcs/./Dog.cpp"
+    ],
+    "directory": "/home/bigo/born2code/piscine_cpp/cpp04/ex00",
+    "file": "/home/bigo/born2code/piscine_cpp/cpp04/ex00/srcs/./Dog.cpp",
+    "output": "/home/bigo/born2code/piscine_cpp/cpp04/ex00/.objs/Dog.o"
+  }
+]
