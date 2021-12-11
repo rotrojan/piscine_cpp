@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:46:14 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/07 23:44:10 by rotrojan         ###   ########.fr       */
+/*   Updated: 2021/12/11 23:46:34 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ class	WrongCat: public WrongAnimal
 		WrongCat &operator=(WrongCat const &rhs);
 		std::string const	&get_type(void) const;
 		void				make_sound(void) const;
-	protected:
-		std::string	_type;
 };
 
 std::ostream	&operator<<(std::ostream &ostream, WrongCat const &rhs);

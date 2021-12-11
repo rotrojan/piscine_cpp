@@ -6,14 +6,14 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:55:06 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/11 20:03:39 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/11 23:47:24 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "WrongCat.class.hpp"
 
-WrongCat::WrongCat(void): _type("wrong cat")
+WrongCat::WrongCat(void): WrongAnimal("wrong cat")
 {
 	std::cout << "This animal is a wrong cat." << std::endl;
 }
