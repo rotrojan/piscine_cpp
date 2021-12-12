@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:55:06 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/12 00:25:25 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/12 17:06:59 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Dog::Dog(void): Animal("dog")
 
 Dog::Dog(Dog const &dog): Animal(dog)
 {
+	*this = dog;
 	std::cout << "A copy of a dog of type " << this->_type
 		<< " has been created." << std::endl;
 }

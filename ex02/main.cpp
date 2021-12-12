@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 16:05:30 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/12 19:35:11 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/12 20:26:05 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	main(void)
 	Cat cat2(cat1);
 	std::cout << cat2 << std::endl;
 	std::cout << std::endl;
+	// Animal animal;
 
 	return (EXIT_SUCCESS);
 }

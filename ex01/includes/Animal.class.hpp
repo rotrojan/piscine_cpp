@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:46:14 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/07 23:17:05 by rotrojan         ###   ########.fr       */
+/*   Updated: 2021/12/12 16:24:19 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ class	Animal
 		Animal(std::string const &type = "animal");
 		Animal(Animal const &animal);
 		virtual ~Animal(void);
-		Animal &operator=(Animal const &rhs);
-		std::string const	&get_type(void) const;
-		virtual void		make_sound(void) const;
+		Animal					&operator=(Animal const &rhs);
+		std::string const		&get_type(void) const;
+		virtual void			make_sound(void) const;
 	protected:
-		std::string	_type;
+		std::string				_type;
 };
 
-std::ostream	&operator<<(std::ostream &ostream, Animal const &rhs);
+std::ostream					&operator<<(std::ostream &ostream, Animal const &rhs);
 
 #endif
