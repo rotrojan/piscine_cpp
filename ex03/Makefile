@@ -6,13 +6,16 @@
 #    By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/21 21:06:11 by rotrojan          #+#    #+#              #
-#    Updated: 2021/12/12 20:42:50 by bigo             ###   ########.fr        #
+#    Updated: 2021/12/13 23:04:34 by bigo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = interface_and_recap
 
 SRCS =	main.cpp		\
+		AMateria.cpp	\
+		Ice.cpp			\
+		Cure.cpp
 
 OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 DEPENDENCIES = $(OBJS:%.o=%.d)

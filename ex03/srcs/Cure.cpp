@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.class.hpp                               :+:      :+:    :+:   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bigo <rotrojan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/12 20:50:53 by bigo              #+#    #+#             */
-/*   Updated: 2021/12/13 22:48:32 by bigo             ###   ########.fr       */
+/*   Created: 2021/12/12 20:44:18 by bigo              #+#    #+#             */
+/*   Updated: 2021/12/13 23:08:07 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_CLASS_HPP
-# define ICHARACTER_CLASS_HPP
-# include <iostream>
-# include "AMateria.class.hpp"
+#include "Cure.class.hpp"
 
-class	AMateria;
-
-class	ICharacter
+Cure::Cure(Cure const &cure): AMateria("cure")
 {
-	public:
-		virtual ~ICharacter() {}
-		virtual std::string const	&get_name() const = 0;
-		virtual void				equip(AMateria *m) = 0;
-		virtual void				unequip(int idx) = 0;
-		virtual void				use(int idx, ICharacter& target) = 0;
-};
+	*this = cure;
+}
 
-#endif
+Cure	&Cure::operator=(Cure const &rhs)
+{
+	if (this != &rhs)
+		this->_type = rhs._type;
+	return (*this);
+}
+
+Cure	*Cure::clone(void) const
+{
+	return (new Cure());
+}
+
+void	Cure::use(ICharacter &target)
+{
+	std::cout << "* heals " << target.get_name() << "'s wounds *" << std::endl;
+}

@@ -1,30 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.class.hpp                               :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bigo <rotrojan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/12/12 20:50:53 by bigo              #+#    #+#             */
-/*   Updated: 2021/12/13 22:48:32 by bigo             ###   ########.fr       */
+/*   Created: 2021/12/12 20:44:18 by bigo              #+#    #+#             */
+/*   Updated: 2021/12/13 23:07:36 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICHARACTER_CLASS_HPP
-# define ICHARACTER_CLASS_HPP
-# include <iostream>
-# include "AMateria.class.hpp"
+#include "Ice.class.hpp"
 
-class	AMateria;
-
-class	ICharacter
+Ice::Ice(Ice const &ice): AMateria("ice")
 {
-	public:
-		virtual ~ICharacter() {}
-		virtual std::string const	&get_name() const = 0;
-		virtual void				equip(AMateria *m) = 0;
-		virtual void				unequip(int idx) = 0;
-		virtual void				use(int idx, ICharacter& target) = 0;
-};
+	*this = ice;
+}
 
-#endif
+Ice	&Ice::operator=(Ice const &rhs)
+{
+	if (this != &rhs)
+		this->_type = rhs._type;
+	return (*this);
+}
+
+Ice	*Ice::clone(void) const
+{
+	return (new Ice());
+}
+
+void	Ice::use(ICharacter &target)
+{
+	std::cout << "* shoots an ice bolt at " << target.get_name()
+		<< " *" << std::endl;
+}

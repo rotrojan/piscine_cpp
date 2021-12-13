@@ -6,7 +6,7 @@
 /*   By: bigo <rotrojan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:44:18 by bigo              #+#    #+#             */
-/*   Updated: 2021/12/12 22:48:24 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/13 16:05:48 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 class	AMateria
 {
 	public:
-		AMateria(std::string const &type = "blank"): _type(type) {};
+		AMateria(void) {};
+		AMateria(std::string const &type): _type(type) {};
 		AMateria(AMateria const &materia);
 		virtual ~AMateria(void) {};
 		AMateria			&operator=(AMateria const &rhs);
@@ -27,7 +28,6 @@ class	AMateria
 		virtual void		use(ICharacter &target);
 	protected:
 		std::string	_type;
-
 };
 
 #endif

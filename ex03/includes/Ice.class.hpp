@@ -6,7 +6,7 @@
 /*   By: bigo <rotrojan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:44:18 by bigo              #+#    #+#             */
-/*   Updated: 2021/12/12 22:48:39 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/13 22:51:36 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,12 @@
 class	Ice: public AMateria
 {
 	public:
-		Ice(std::string const &type = "ice");
+		Ice(void): AMateria("ice") {};
 		Ice(Ice const &ice);
-		virtual ~Ice(void) {};
-		Ice					&operator=(Ice const &rhs);
-		std::string const	&getType() const;
-		Ice					*clone() const;
-		void				use(ICharacter &target);
+		~Ice(void) {};
+		Ice		&operator=(Ice const &rhs);
+		Ice		*clone(void) const;
+		void	use(ICharacter &target);
 };
 
 #endif

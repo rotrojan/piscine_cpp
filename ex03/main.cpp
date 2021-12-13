@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 16:05:30 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/12 22:20:30 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/13 23:32:46 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "IMateriaSource.class.hpp"
 #include "ICharacter.class.hpp"
 #include "AMateria.class.hpp"
+#include "Ice.class.hpp"
+#include "Cure.class.hpp"
 
 int	main(void)
 {
