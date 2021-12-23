@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 16:05:30 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/11 21:15:50 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/24 00:33:38 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,12 @@ int	main(void)
 	wrongcat->make_sound();
 	std::cout << std::endl;
 
+	const WrongCat	*fakecat = new WrongCat();
+	std::cout << "fakecat is of type " << fakecat->get_type() << std::endl;
+	fakecat->make_sound();
+	std::cout << std::endl;
+
+	delete fakecat;
 	delete wrongcat;
 	delete wronganimal;
 	return (EXIT_SUCCESS);
