@@ -6,7 +6,7 @@
 /*   By: bigo <rotrojan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:50:53 by bigo              #+#    #+#             */
-/*   Updated: 2021/12/23 11:46:39 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/24 00:01:46 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 Character::Character(std::string name): _name(name)
 {
-	this->_inventory[0] = NULL;
-	this->_inventory[1] = NULL;
-	this->_inventory[2] = NULL;
-	this->_inventory[3] = NULL;
+	for (int i = 0; i < SIZE_INVENTORY; i++)
+		this->_inventory[i] = NULL;
 }
 
 Character::Character(Character const &character)
@@ -35,8 +33,14 @@ Character	&Character::operator=(Character const &rhs)
 {
 	if (this != &rhs)
 	{
-		for (int i = 0; i < SIZE_INVENTORY && rhs._inventory[i] != NULL; i++)
-			this->_inventory[i] = rhs._inventory[i];
+		this->_name = rhs._name;
+		for (int i = 0; i < SIZE_INVENTORY; i++)
+		{
+			if (rhs._inventory[i] != NULL)
+				this->_inventory[i] = rhs._inventory[i]->clone();
+			else
+				this->_inventory[i] = NULL;
+		}
 	}
 	return (*this);
 }
@@ -48,6 +52,8 @@ std::string const	&Character::get_name() const
 
 void	Character::equip(AMateria *materia)
 {
+	if (materia == NULL)
+		return ;
 	int	i = 0;
 	while (i < SIZE_INVENTORY && this->_inventory[i] != NULL)
 		i++;
@@ -55,17 +61,16 @@ void	Character::equip(AMateria *materia)
 		this->_inventory[i] = materia;
 }
 
-
 void	Character::unequip(int idx)
 {
 	if (idx < 0 || idx >= SIZE_INVENTORY || this->_inventory[idx] == NULL)
 		return ;
+	this->_inventory[idx] = NULL;
 	while (idx < SIZE_INVENTORY - 1 && this->_inventory[idx] != NULL)
 	{
 		this->_inventory[idx] = this->_inventory[idx + 1];
 		++idx;
 	}
-	this->_inventory[idx] = NULL;
 }
 
 void	Character::use(int idx, ICharacter &target)

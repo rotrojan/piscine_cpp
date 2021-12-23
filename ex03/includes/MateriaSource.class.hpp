@@ -6,7 +6,7 @@
 /*   By: bigo <rotrojan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:50:53 by bigo              #+#    #+#             */
-/*   Updated: 2021/12/23 11:48:38 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/23 15:15:17 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class MateriaSource: public IMateriaSource
 		MateriaSource(void);
 		MateriaSource(MateriaSource const &materiasource);
 		MateriaSource	&operator=(MateriaSource const &rhs);
-		virtual ~MateriaSource();
+		~MateriaSource(void);
 		void		learn_materia(AMateria *materia);
 		AMateria	*create_materia(std::string const &type);
 	private:

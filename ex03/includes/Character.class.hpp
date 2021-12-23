@@ -6,7 +6,7 @@
 /*   By: bigo <rotrojan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:50:53 by bigo              #+#    #+#             */
-/*   Updated: 2021/12/23 11:46:47 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/23 13:05:26 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class	Character: public ICharacter
 	public:
 		Character(std::string name = "Cloud");
 		Character(Character const &character);
-		~Character();
+		~Character(void);
 		Character			&operator=(Character const &rhs);
 		std::string const	&get_name() const;
 		void				equip(AMateria *materia);
