@@ -6,7 +6,7 @@
 /*   By: bigo <rotrojan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:44:18 by bigo              #+#    #+#             */
-/*   Updated: 2021/12/13 16:05:48 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/23 11:43:15 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define AMATERIA_CLASS_HPP
 # include <string>
 # include "ICharacter.class.hpp"
+
+class	ICharacter;
 
 class	AMateria
 {

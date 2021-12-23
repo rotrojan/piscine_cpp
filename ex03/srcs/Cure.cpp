@@ -6,7 +6,7 @@
 /*   By: bigo <rotrojan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:44:18 by bigo              #+#    #+#             */
-/*   Updated: 2021/12/13 23:08:07 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/23 08:33:16 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ Cure::Cure(Cure const &cure): AMateria("cure")
 
 Cure	&Cure::operator=(Cure const &rhs)
 {
-	if (this != &rhs)
-		this->_type = rhs._type;
+	(void)rhs;
 	return (*this);
 }
 

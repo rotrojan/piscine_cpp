@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSource.class.hpp                           :+:      :+:    :+:   */
+/*   Character.class.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bigo <rotrojan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 20:50:53 by bigo              #+#    #+#             */
-/*   Updated: 2021/12/16 16:03:01 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/23 11:46:47 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMATERIASOURCE_CLASS_HPP
-# define IMATERIASOURCE_CLASS_HPP
-# include "AMateria.class.hpp" 
+#ifndef CHARACTER_CLASS_HPP
+# define CHARACTER_CLASS_HPP
+# include <iostream>
+# include <string>
+# include "ICharacter.class.hpp"
+# include "AMateria.class.hpp"
+# define SIZE_INVENTORY 4
 
-class IMateriaSource
+class	Character: public ICharacter
 {
 	public:
-		virtual ~IMateriaSource() {}
-		virtual void		learn_materia(AMateria*) = 0;
-		virtual AMateria	*create_materia(std::string const & type) = 0;
+		Character(std::string name = "Cloud");
+		Character(Character const &character);
+		~Character();
+		Character			&operator=(Character const &rhs);
+		std::string const	&get_name() const;
+		void				equip(AMateria *materia);
+		void				unequip(int idx);
+		void				use(int idx, ICharacter &target);
+	private:
+		std::string	_name;
+		AMateria	*_inventory[SIZE_INVENTORY];
 };
 
 #endif
