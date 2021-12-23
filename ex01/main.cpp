@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 16:05:30 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/12 19:35:11 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/24 00:47:02 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,15 +45,23 @@ int	main(void)
 	std::cout << std::endl;
 
 	Dog	dog1;
+	std::cout << std::endl;
+	{
+		Dog dog2(dog1);
+		std::cout << dog2 << std::endl;
+	}
+	std::cout << std::endl;
 	std::cout << dog1 << std::endl;
-	Dog dog2(dog1);
-	std::cout << dog2 << std::endl;
 	std::cout << std::endl;
 
 	Cat	cat1;
+	std::cout << std::endl;
+	{
+		Cat cat2 = cat1;
+		std::cout << cat2 << std::endl;
+	}
+	std::cout << std::endl;
 	std::cout << cat1 << std::endl;
-	Cat cat2(cat1);
-	std::cout << cat2 << std::endl;
 	std::cout << std::endl;
 
 	return (EXIT_SUCCESS);
