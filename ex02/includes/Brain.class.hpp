@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 15:46:14 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/12 14:24:53 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/24 01:02:59 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class	Brain
 	public:
 		Brain(void);
 		Brain(Brain const &brain);
-		~Brain(void);
+		virtual ~Brain(void);
 		Brain				&operator=(Brain const &rhs);
 		std::string const	to_str(void) const;
 		void				add_idea(std::string idea);
