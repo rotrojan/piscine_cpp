@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 16:05:30 by rotrojan          #+#    #+#             */
-/*   Updated: 2021/12/24 00:02:41 by bigo             ###   ########.fr       */
+/*   Updated: 2021/12/24 01:18:32 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,13 @@ int	main(void)
 	cloud.equip(src->create_materia("ice"));
 	cloud.equip(src->create_materia("fire"));
 	cloud.equip(src->create_materia("cure"));
-	Character	cloud2(cloud);
-	cloud2.use(0, cloud);
-	cloud2.use(1, cloud);
+	{
+		Character	cloud2(cloud);
+		cloud2.use(0, cloud);
+		cloud2.use(1, cloud);
+	}
+	cloud.use(0, cloud);
+	cloud.use(1, cloud);
 	delete src;
 	return (EXIT_SUCCESS);
 }
