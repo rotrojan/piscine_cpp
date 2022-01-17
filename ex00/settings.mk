@@ -6,7 +6,7 @@
 #    By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/21 21:06:11 by rotrojan          #+#    #+#              #
-#    Updated: 2022/01/15 19:57:33 by bigo             ###   ########.fr        #
+#    Updated: 2022/01/17 20:42:30 by rotrojan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@
 NAME = convert
 
 # The list of the all the sources, because $(wildcard *.c) is too dangerous
-SRCS =	main.cpp					\
-		Literal.cpp					\
+SRCS =	main.cpp		\
+		check_types.cpp	\
 
 # The file where make will look for all the sources (in addition to the root
 # directory of the Makefile)
