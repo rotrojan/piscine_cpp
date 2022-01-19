@@ -6,14 +6,10 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 20:33:24 by rotrojan          #+#    #+#             */
-/*   Updated: 2022/01/18 23:04:13 by rotrojan         ###   ########.fr       */
+/*   Updated: 2022/01/19 17:28:22 by bigo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <cstdlib>
-#include <cstring>
-#include <cerrno>
-#include <cstdlib>
 #include <climits>
 #include <cmath>
 #include <iostream>
@@ -24,11 +20,12 @@ void	Literal::_set_flags(void) {
 
 	double d = this->_double;
 
-	if (d < INT_MIN || d > INT_MAX || static_cast<double>(this->_int) != d)
+	if (d < static_cast<double>(INT_MIN) || d > static_cast<double>(INT_MAX)
+		|| std::isnan(d) == true || std::isinf(d) == true)
 		this->_flags |= IMPOSSIBLEINT | IMPOSSIBLECHAR;
-	else if (d < 0 || d > 127)
+	else if (d < CHAR_MIN || d > CHAR_MAX)
 		this->_flags |= IMPOSSIBLECHAR;
-	else if (d < ' ' || d > '~')
+	else if (std::isprint(this->_char) == false)
 		this->_flags |= NONDISPLAYABLECHAR;
 }
 
@@ -37,7 +34,7 @@ bool	Literal::_is_int(char const *arg) {
 	char *end_ptr = NULL;
 	long int res = strtol(arg, &end_ptr, 10);
 
-	if (*end_ptr != '\0' || errno != 0 || res > INT_MAX || res < INT_MIN)
+	if (*end_ptr != '\0' || res > INT_MAX || res < INT_MIN)
 		return (false);
 
 	this->_type = INT;
@@ -50,8 +47,9 @@ bool	Literal::_is_double(char const *arg) {
 	char *end_ptr = NULL;
 	double res = strtod(arg, &end_ptr);
 
-	if (*end_ptr != '\0' || errno != 0 || res == HUGE_VAL)
+	if (*end_ptr != '\0')
 		return (false);
+
 	this->_type = DOUBLE;
 	this->_double = res;
 	return (true);
@@ -62,25 +60,28 @@ bool	Literal::_is_float(char const *arg) {
 	char *end_ptr = NULL;
 	float res = strtof(arg, &end_ptr);
 
-	if (*end_ptr != 'f' || *(end_ptr + 1) != '\0' || end_ptr - arg <= 0
-		|| res == HUGE_VALF || errno != 0)
+	if (*end_ptr != 'f' || *(end_ptr + 1) != '\0' || end_ptr - arg <= 0)
 		return (false);
+
 	this->_type = FLOAT;
 	this->_float = res;
 	return (true);
 }
 
 bool	Literal::_is_char(char const *arg) {
+
 	char c = arg[0];
 
-	if (arg[1] != '\0' || c < ' ' || c > '~') // range of printable ascii characters for c
+	if (arg[1] != '\0' || std::isprint(c) == false)
 		return (false);
+
 	this->_char = c;
 	this->_type = CHAR;
 	return (true);
 }
 
 Literal::Literal(char const *arg): _flags(0) {
+
 	if (this->_is_int(arg) == false
 		&& this->_is_double(arg) == false
 		&& this->_is_float(arg) == false
@@ -88,35 +89,37 @@ Literal::Literal(char const *arg): _flags(0) {
 		this->_type = TYPE_ERROR;
 
 	enum e_type type = this->_type;
-	char c = this->_char;
-	int n = this->_int;
-	float f = this->_float;
-	double d = this->_double;
 	switch (type) {
-		case CHAR:
+		case CHAR: {
+			char c = this->_char;
 			this->_int = static_cast<int>(c);
 			this->_float = static_cast<float>(c);
 			this->_double = static_cast<double>(c);
-			break ;
-		case INT:
+			 break ;
+		} case INT: {
+			int n = this->_int;
 			this->_char = static_cast<char>(n);
 			this->_float = static_cast<float>(n);
 			this->_double = static_cast<double>(n);
 			break ;
-		case FLOAT:
+		} case FLOAT: {
+			float f = this->_float;
 			this->_char = static_cast<char>(f);
 			this->_int = static_cast<int>(f);
 			this->_double = static_cast<double>(f);
 			break ;
-		case DOUBLE:
+		} case DOUBLE: {
+			double d = this->_double;
 			this->_char = static_cast<char>(d);
 			this->_int = static_cast<int>(d);
 			this->_float = static_cast<float>(d);
 			break ;
-		default:
-			this->_flags |=
-				IMPOSSIBLEDOUBLE | IMPOSSIBLEFLOAT | IMPOSSIBLEINT | IMPOSSIBLECHAR;
+		} default: {
+			this->_flags |= IMPOSSIBLEINT | IMPOSSIBLECHAR;
+			this->_float = NAN;
+			this->_double = NAN;
 			break ;
+		 }
 	}
 	this->_set_flags();
 }
@@ -138,9 +141,7 @@ Literal	&Literal::operator=(Literal const &rhs) {
 	return (*this);
 }
 
-void	Literal::print(void) {
-
-	char flags = this->_flags;
+static void	print_char(char const c, unsigned int const flags) {
 
 	std::cout << "char: ";
 	if (flags & IMPOSSIBLECHAR)
@@ -148,29 +149,27 @@ void	Literal::print(void) {
 	else if (flags & NONDISPLAYABLECHAR)
 		std::cout << "Non displayable";
 	else
-		std::cout << "'" << this->_char << "'";
+		std::cout << "'" << c << "'";
 	std::cout << std::endl;
+}
+
+static void	print_int(int const n, unsigned int const flags) {
 
 	std::cout << "int: ";
 	if (flags & IMPOSSIBLEINT)
 		std::cout << "impossible";
 	else
-		std::cout << this->_int;
+		std::cout << n;
 	std::cout << std::endl;
+}
+
+void	Literal::print(void) {
 
 	std::cout << std::fixed << std::setprecision(1);
 
-	std::cout << "float: ";
-	if (flags & IMPOSSIBLEFLOAT)
-		std::cout << "impossible";
-	else
-		std::cout << this->_float << "f";
-	std::cout << std::endl;
+	print_char(this->_char, this->_flags);
+	print_int(this->_int, this->_flags);
 
-	std::cout << "double: ";
-		if (flags & IMPOSSIBLEDOUBLE)
-			std::cout << "impossible";
-		else
-			std::cout << this->_float;
-		std::cout << std::endl;
+	std::cout << "float: " << this->_float << "f" << std::endl;
+	std::cout << "double: " << this->_double << std::endl;
 }
