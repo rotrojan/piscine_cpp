@@ -6,7 +6,7 @@
 #    By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/21 21:06:11 by rotrojan          #+#    #+#              #
-#    Updated: 2022/01/20 19:18:26 by rotrojan         ###   ########.fr        #
+#    Updated: 2022/01/20 20:51:13 by rotrojan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS =	main.cpp		\
 
 # The file where make will look for all the sources (in addition to the root
 # directory of the Makefile)
-SRCS_DIR = srcs
+SRCS_DIR = .
 
 # The libraries used
 LIBS =
