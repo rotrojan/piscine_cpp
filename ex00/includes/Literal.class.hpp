@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 15:05:06 by rotrojan          #+#    #+#             */
-/*   Updated: 2022/01/19 16:07:07 by bigo             ###   ########.fr       */
+/*   Updated: 2022/01/24 19:52:46 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ class Literal {
 		bool			_is_float(char const *arg);
 		bool			_is_char(char const *arg);
 		void			_set_flags(void);
-		void			_print_convert(void);
 };
 
 #endif
