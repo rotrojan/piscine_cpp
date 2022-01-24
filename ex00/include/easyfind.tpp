@@ -6,17 +6,16 @@
 /*   By: bigo <rotrojan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 13:35:07 by bigo              #+#    #+#             */
-/*   Updated: 2022/01/22 14:34:09 by bigo             ###   ########.fr       */
+/*   Updated: 2022/01/24 18:26:41 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "easyfind.hpp"
+#include <algorithm>
 
 template <typename T>
-T	&easyfind(T &key, int val) {
-
-	std::T<int> container;
-
-	std::T<int>::iterator	itl;
-	foreach()
+typename T::iterator	easyfind(T &container, int const &val) {
+	typename T::iterator it = std::find(container.begin(), container.end(), val);
+	if (it == container.end())
+		throw std::runtime_error("Value not found");
+	return (it);
 }

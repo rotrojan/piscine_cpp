@@ -6,7 +6,7 @@
 /*   By: bigo <rotrojan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 13:35:07 by bigo              #+#    #+#             */
-/*   Updated: 2022/01/22 14:29:49 by bigo             ###   ########.fr       */
+/*   Updated: 2022/01/24 18:54:50 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define EASYFIND_HPP
 
 template <typename T>
-T	&easyfind(T &key, int val);
+typename T::iterator	easyfind(T &container, int const &val);
+
+#include "easyfind.tpp"
 
 #endif
