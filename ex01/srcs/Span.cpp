@@ -6,13 +6,11 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 19:06:37 by rotrojan          #+#    #+#             */
-/*   Updated: 2022/01/24 23:14:04 by rotrojan         ###   ########.fr       */
+/*   Updated: 2022/01/25 14:48:57 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <vector>
 #include <ostream>
-#include <stdexcept>
 #include <algorithm>
 #include <climits>
 #include "Span.hpp"
@@ -45,10 +43,14 @@ void	Span::addNumber(int nb) {
 }
 
 int	Span::longestSpan(void) {
+	if (this->_data.size() <= 1)
+		throw std::runtime_error("Span to small");
 	return (*std::max_element(this->_data.begin(), this->_data.end()) - *std::min_element(this->_data.begin(), this->_data.end()));
 }
 
 int	Span::shortestSpan(void) {
+	if (this->_data.size() <= 1)
+		throw std::runtime_error("Span to small");
 	int shortest_span = INT_MAX;
 	std::vector<int> tmp = this->_data;
 	std::sort(tmp.begin(), tmp.end());
@@ -65,6 +67,8 @@ std::vector<int>	&Span::getData(void) {
 }
 
 void	Span::addInRange(std::vector<int>::iterator it, std::vector<int>::iterator ite) {
+	if (this->_data.size() + (ite - it) > this->_maxSize)
+		throw std::runtime_error("Cannot fill span");
 	for (; it != ite; it++)
 		this->_data.push_back(*it);
 }

@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 18:59:18 by rotrojan          #+#    #+#             */
-/*   Updated: 2022/01/24 23:01:04 by rotrojan         ###   ########.fr       */
+/*   Updated: 2022/01/25 16:46:45 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,16 @@ class Span {
 		Span(int N = 0);
 		Span(Span const &span);
 		Span	&operator=(Span const &rhs);
-		virtual ~Span(void);
-		void				addNumber(int nb);
-		int					longestSpan(void);
-		int					shortestSpan(void);
-		std::vector<int> &getData(void);
-		void	addInRange(std::vector<int>::iterator it, std::vector<int>::iterator ite);
+		~Span(void);
+		void					addNumber(int nb);
+		int						longestSpan(void);
+		int						shortestSpan(void);
+		std::vector<int>		&getData(void);
+		void					addInRange(
+								std::vector<int>::iterator it, std::vector<int>::iterator ite);
 	private:
-		std::vector<int>				_data;
-		const unsigned long int			_maxSize;
+		std::vector<int>		_data;
+		const unsigned long int	_maxSize;
 };
 
 std::ostream	&operator<<(std::ostream &ostream, Span &rhs);

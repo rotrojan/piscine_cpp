@@ -6,12 +6,12 @@
 #    By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/21 21:06:11 by rotrojan          #+#    #+#              #
-#    Updated: 2022/01/24 20:24:07 by rotrojan         ###   ########.fr        #
+#    Updated: 2022/01/25 15:53:37 by rotrojan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # The name of the binary
-NAME = span
+NAME = ex01
 
 # The list of the all the sources, because $(wildcard *.c) is too dangerous
 SRCS =	main.cpp		\
@@ -19,7 +19,7 @@ SRCS =	main.cpp		\
 
 # The file where make will look for all the sources (in addition to the root
 # directory of the Makefile)
-SRCS_DIR = .
+SRCS_DIR = srcs
 
 # The libraries used
 LIBS =
