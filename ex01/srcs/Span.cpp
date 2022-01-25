@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 19:06:37 by rotrojan          #+#    #+#             */
-/*   Updated: 2022/01/25 14:48:57 by rotrojan         ###   ########.fr       */
+/*   Updated: 2022/01/25 18:37:12 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,14 @@ void	Span::addNumber(int nb) {
 	this->_data.push_back(nb);
 }
 
+void	Span::addNumber(std::vector<int>::iterator it, std::vector<int>::iterator ite) {
+	if (this->_data.size() + (ite - it) > this->_maxSize)
+		throw std::runtime_error("Cannot fill span");
+	for (; it != ite; it++)
+		this->_data.push_back(*it);
+}
+
+
 int	Span::longestSpan(void) {
 	if (this->_data.size() <= 1)
 		throw std::runtime_error("Span to small");
@@ -64,13 +72,6 @@ int	Span::shortestSpan(void) {
 
 std::vector<int>	&Span::getData(void) {
 	return (this->_data);
-}
-
-void	Span::addInRange(std::vector<int>::iterator it, std::vector<int>::iterator ite) {
-	if (this->_data.size() + (ite - it) > this->_maxSize)
-		throw std::runtime_error("Cannot fill span");
-	for (; it != ite; it++)
-		this->_data.push_back(*it);
 }
 
 std::ostream	&operator<<(std::ostream &ostream, Span &rhs) {

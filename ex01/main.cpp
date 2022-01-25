@@ -6,7 +6,7 @@
 /*   By: bigo <rotrojan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 14:03:06 by bigo              #+#    #+#             */
-/*   Updated: 2022/01/25 14:47:47 by rotrojan         ###   ########.fr       */
+/*   Updated: 2022/01/25 18:38:19 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int main(void) {
 		Span sp(5);
 		try {
 			std::cout << "Adding 6 numbers to Span of size 5" << std::endl;
-			sp.addInRange(vec.begin(), vec.begin() + 6);
+			sp.addNumber(vec.begin(), vec.begin() + 6);
 			std::cout << "Range succesfully added" << std::endl;
 			std::cout << sp << std::endl; 
 		} catch (std::exception &e) {
@@ -53,7 +53,7 @@ int main(void) {
 		}
 		try {
 			std::cout << "Adding 5 numbers to Span of size 5" << std::endl;
-			sp.addInRange(vec.begin(), vec.begin() + 5);
+			sp.addNumber(vec.begin(), vec.begin() + 5);
 			std::cout << "Range succesfully added" << std::endl;
 			std::cout << sp << std::endl; 
 		} catch (std::exception &e) {
@@ -122,14 +122,14 @@ int main(void) {
 
 		try {
 			std::cout << "Adding 10,000,000 numbers in Span of size 10,000,000" << std::endl;
-			very_big.addInRange(vec.begin(), vec.end());
+			very_big.addNumber(vec.begin(), vec.end());
 			std::cout << "Range succesfully added" << std::endl;
 			std::cout << "Adding 10,000,000 numbers in Span of size 10,000" << std::endl;
 // Uncomment the next line at your own riks
 			// std::cout << very_big << std::endl;
-			big.addInRange(vec.begin(), vec.end());
+			big.addNumber(vec.begin(), vec.end());
 			std::cout << "Range succesfully added" << std::endl;
-			big.addInRange(vec.begin(), vec.end());
+			big.addNumber(vec.begin(), vec.end());
 		} catch (std::exception &except) {
 			std::cerr << "Error: " << except.what() << std::endl;
 		}
