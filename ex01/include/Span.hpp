@@ -6,13 +6,14 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 18:59:18 by rotrojan          #+#    #+#             */
-/*   Updated: 2022/01/25 18:37:40 by rotrojan         ###   ########.fr       */
+/*   Updated: 2022/01/27 23:14:28 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_HPP
 # define SPAN_HPP
 # include <vector>
+# include <map>
 # include <ostream>
 
 class Span {
@@ -22,10 +23,15 @@ class Span {
 		Span	&operator=(Span const &rhs);
 		~Span(void);
 		void					addNumber(int nb);
-		void					addNumber(
-								std::vector<int>::iterator it, std::vector<int>::iterator ite);
-		int						longestSpan(void);
-		int						shortestSpan(void);
+		template <typename Iterator>
+		void	addNumber(Iterator it, Iterator ite) {
+			if (this->_data.size() + std::distance(it, ite) > this->_maxSize)
+				throw std::runtime_error("Cannot fill span");
+			for (; it != ite; it++)
+				this->_data.push_back(*it);
+		}
+		unsigned int			longestSpan(void);
+		unsigned int			shortestSpan(void);
 		std::vector<int>		&getData(void);
 	private:
 		std::vector<int>		_data;

@@ -6,7 +6,7 @@
 /*   By: rotrojan <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 19:06:37 by rotrojan          #+#    #+#             */
-/*   Updated: 2022/01/25 18:37:12 by rotrojan         ###   ########.fr       */
+/*   Updated: 2022/01/27 23:14:55 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,28 +42,20 @@ void	Span::addNumber(int nb) {
 	this->_data.push_back(nb);
 }
 
-void	Span::addNumber(std::vector<int>::iterator it, std::vector<int>::iterator ite) {
-	if (this->_data.size() + (ite - it) > this->_maxSize)
-		throw std::runtime_error("Cannot fill span");
-	for (; it != ite; it++)
-		this->_data.push_back(*it);
-}
-
-
-int	Span::longestSpan(void) {
+unsigned int	Span::longestSpan(void) {
 	if (this->_data.size() <= 1)
 		throw std::runtime_error("Span to small");
 	return (*std::max_element(this->_data.begin(), this->_data.end()) - *std::min_element(this->_data.begin(), this->_data.end()));
 }
 
-int	Span::shortestSpan(void) {
+unsigned int	Span::shortestSpan(void) {
 	if (this->_data.size() <= 1)
 		throw std::runtime_error("Span to small");
-	int shortest_span = INT_MAX;
+	unsigned int shortest_span = UINT_MAX;
 	std::vector<int> tmp = this->_data;
 	std::sort(tmp.begin(), tmp.end());
 	for (std::vector<int>::const_iterator it = tmp.begin(), next = it + 1; next != tmp.end(); it++, next++) {
-		int tmp_span = abs(*it - *next);
+		unsigned int tmp_span = *next - *it;
 		if (tmp_span < shortest_span)
 			shortest_span = tmp_span;
 	}
