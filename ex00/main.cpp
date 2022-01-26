@@ -6,7 +6,7 @@
 /*   By: bigo <rotrojan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 14:03:06 by bigo              #+#    #+#             */
-/*   Updated: 2022/01/21 20:59:53 by bigo             ###   ########.fr       */
+/*   Updated: 2022/01/26 16:09:09 by rotrojan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,35 @@ int main(void) {
 	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
 	return (EXIT_SUCCESS);
 }
+
+// The following main is the one provided by the evaluation scale.
+/*
+class Awesome
+{
+	public:
+		Awesome(void) : _n(0) {}
+		Awesome( int n ) : _n( n ) {}
+		Awesome & operator= (Awesome & a) { _n = a._n; return *this; }
+		bool operator==( Awesome const & rhs ) const { return (this->_n == rhs._n); }
+		bool operator!=( Awesome const & rhs ) const{ return (this->_n != rhs._n); }
+		bool operator>( Awesome const & rhs ) const { return (this->_n > rhs._n); }
+		bool operator<( Awesome const & rhs ) const { return (this->_n < rhs._n); }
+		bool operator>=( Awesome const & rhs ) const { return (this->_n >= rhs._n); }
+		bool operator<=( Awesome const & rhs ) const { return (this->_n <= rhs._n); }
+		int get_n() const { return _n; }
+	private:
+		int _n;
+};
+
+std::ostream & operator<<(std::ostream & o, const Awesome &a) { o << a.get_n(); return o; }
+
+int main(void)
+{
+	Awesome a(2), b(4);
+	swap(a, b);
+	std::cout << a << " " << b << std::endl;
+	std::cout << max(a, b) << std::endl;
+	std::cout << min(a, b) << std::endl;
+	return (0);
+}
+*/
